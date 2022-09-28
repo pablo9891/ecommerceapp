@@ -1,0 +1,16 @@
+.navbar-header-container a {
+    font-size: 2.1em;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    color: #0D0D11;
+    margin-top: auto;
+}
+
+.navbar-header-container a:hover {
+    color: #0D0D11;
+}
+
+.navbar-header-container {
+    padding: 5px;
+    margin: 0px;    
+}

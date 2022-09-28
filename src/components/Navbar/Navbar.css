@@ -1,0 +1,30 @@
+.navbar{
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 5px;
+    background-color: #F8F9FA;
+}
+
+.navbar-container{
+    width: 88%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.navbar-presentation {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    width: 80%;
+}
+
+.cart-widget-presentation {
+    width: 20%;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}

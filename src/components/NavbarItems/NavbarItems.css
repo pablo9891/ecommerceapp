@@ -1,0 +1,15 @@
+.navbar-items a {
+    text-decoration: none;
+    color: #3A3B3E;
+    margin-right: 15px;
+    font-size: 1.3em;
+}
+
+.navbar-items a:hover {
+    color: #0D0D11;
+}
+
+.navbar-items {
+    padding: 17px;
+    margin-left: 5px;
+}
