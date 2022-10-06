@@ -1,0 +1,8 @@
+.itemListcontainer {
+    width: 90%;
+    margin: auto;
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: 30% 30% 30%;
+    margin-top: 20px;
+}

@@ -1,9 +1,10 @@
 import './NavbarHeader.css'
+import { Link } from "react-router-dom"
 
 const NavbarHeader = () => {
     return(
         <div className="navbar-header-container">
-            <a href="#">TiendaDePablo</a>
+            <Link to={`/`}>TiendaDePablo</Link>
         </div>
         
     );
