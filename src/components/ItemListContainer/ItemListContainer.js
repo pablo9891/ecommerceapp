@@ -1,42 +1,42 @@
-import './itemListContainer.css';
+import './ItemListContainer.css';
 import { useState, useEffect } from 'react';
-import { getProducts, getProductsByCategoryId } from '../../asyncMock';
 import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
+import { db } from '../../services/firebase';
+import { getDocs, collection, query, where } from 'firebase/firestore';
 
 const ItemListContainer = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(false)
+    const [error, setError] = useState(false);
     const [areNoProductsToShow, setAreNoProductsToShow] = useState(false);
 
     const { categoryId } = useParams();
+
     useEffect(() => {
-        if(!categoryId) {
-            getProducts().then(res => {
-                setProducts(res);
-                setAreNoProductsToShow(false);
-            }).catch(error => {
-                setError(true);
-            }).finally(() => {
-                setLoading(false);
+        setLoading(true)
+
+        const collectionRef = categoryId 
+                ? query(collection(db, 'products'), where('category.id', '==', Number(categoryId)))
+                : collection(db, 'products');
+  
+        getDocs(collectionRef).then(response => {
+            const productsAdapted = response.docs.map(doc => {
+                const data = doc.data()
+                return { id: doc.id, ...data}
             });
-        } else {
-            getProductsByCategoryId(categoryId).then(res => {
-                if(res.length != 0) {
-                    setAreNoProductsToShow(false);
-                } else {
-                    setAreNoProductsToShow(true);
-                }
-                setProducts(res);
-            }).catch(error => {
-                console.log(error);
-                setError(true);
-            }).finally(() => {
-                setLoading(false);
-            });
-        }
+
+            setProducts(productsAdapted);
+        })
+        .catch(error => {
+            setError(true);
+            console.log(error);
+        })
+        .finally(() => {
+            setLoading(false)
+        })
     }, [categoryId]);
+
 
     if(loading) {
         return <h1>Loading...</h1>

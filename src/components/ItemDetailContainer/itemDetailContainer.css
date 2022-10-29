@@ -4,3 +4,16 @@
     margin-top: 20px;
     display: block;
 }
+
+.go-back-button {
+    padding: 5px;
+    border-radius: 10px;
+    width: 75%;
+    margin: auto;
+    background-color: #E5F0FF;
+    border-color: #E5F0FF;
+    color: #0052C9;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-decoration: none;
+}

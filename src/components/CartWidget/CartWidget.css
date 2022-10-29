@@ -1,4 +1,24 @@
-.svg-container {
-    width: 20%;
+.svg-container{
+    text-decoration: none;
+    width: 40%;
+    margin-right: 20px;
+}
+
+.svg-container a img {
+    width: 100%;
+}
+
+.widget-container {
     margin-right: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content:right;
+    width: 50%;
+    padding: 5px;
+}
+
+.number-container a{
+    text-decoration: 50%;
+    font-size: 1.3em;
+    color: #3A3B3E;
 }

@@ -1,6 +1,7 @@
 # E-commerce - Proyecto React Coderhouse
 * Alumno: Pablo Pellecchia
-* Comisión: 34750
+* Año: 2022
+* Comisión: 34750 Lu - Mi
 
 ## Available Scripts
 
