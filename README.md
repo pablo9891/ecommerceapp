@@ -37,3 +37,6 @@ Se realiza la carga de datos del usuario para poder generar la compra. Todos los
 
 ### Checkout
 Es en donde se termina de confirmar la compra, junto con los datos del usuario, total y productos de la compra. Si no se confirma, se vuelve a la pantalla de `Cart` para revisar la compra.
+
+# Passwords y Pérmisos
+Los mismos se encuentran en un archivo .env, el cual no ha sido compartido en el repositorio de Github por contener información sensible de conexiones a bases de datos.
