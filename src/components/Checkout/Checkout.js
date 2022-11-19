@@ -1,27 +1,18 @@
 import './Checkout.css';
 import { useState, useContext } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { CartContext } from "../../context/CartContext/CartContext";
 import { getDocs, addDoc, collection, where, query, documentId, writeBatch } from 'firebase/firestore';
 import { db } from '../../services/firebase';
-import { Link } from "react-router-dom";
 
 const Checkout = () => {
+    const location = useLocation();
     const [loading, setLoading] = useState(false);
     const [shouldShowSuccessMessage, setShouldShowSuccessMessage] = useState(false);
     const [shouldShowNoStockErrorMessage, setShouldShowNoStockErrorMessage] = useState(false);
     const [shouldShowGenericErrorMessage, setShouldShowGenericErrorMessage] = useState(false);
-    const { cart, total, clearCart } = useContext(CartContext);
-
-    const newOrder = {
-        buyer: {
-            name: 'Pablo Pellecchia',
-            phone: '1568892190',
-            email: 'pablo989@gmail.com',
-            address: 'Gimenez 1238'
-        },
-        items: cart,
-        total
-    };
+    const { cart, clearCart } = useContext(CartContext);
+    const newOrder = location.state.newOrder;
 
     const processDbResponse = (batch, doc) => {
         const outOfStock = [];
@@ -48,7 +39,7 @@ const Checkout = () => {
         setShouldShowSuccessMessage(true);
     }
 
-    const createOrder = async () => {
+    const confirmOrder = async () => {
         setLoading(true);
         try {        
             const ids = cart.map(prod => prod.id);
@@ -107,27 +98,30 @@ const Checkout = () => {
 
     return (
         <div className="checkout-container">
-            <div className="item-row">
-                <h3>Nombre</h3>
+            <div className="item-confirm-row">
+                <h3>Nombre y Apellido</h3>
                 <h3>{newOrder.buyer.name}</h3>
             </div>
-            <div className="item-row">
+            <div className="item-confirm-row">
                 <h3>Dirección</h3>
                 <h3>{newOrder.buyer.address}</h3>
             </div>
-            <div className="item-row">
+            <div className="item-confirm-row">
                 <h3>Telefono</h3>
                 <h3>{newOrder.buyer.phone}</h3>
             </div>
-            <div className="item-row">
+            <div className="item-confirm-row">
                 <h3>Email</h3>
                 <h3>{newOrder.buyer.email}</h3>
             </div>
-            <div className="item-row">
+            <div className="item-confirm-row">
                 <h3>Total</h3>
                 <h3>${newOrder.total}</h3>
             </div>
-            <a className="create-order-checkout" onClick={createOrder}>Finalizar Compra</a>
+            <div className='confirm-buttons-row'>
+                <Link className="create-order-checkout" to="/cart">Volver</Link>
+                <a className="create-order-checkout" onClick={confirmOrder}>Finalizar Compra</a>
+            </div>
         </div>
     );
 };

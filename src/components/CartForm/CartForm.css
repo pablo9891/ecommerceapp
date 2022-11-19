@@ -1,30 +1,37 @@
-.item-row {
+
+.form-item-row {
     display: flex;
     justify-content: center;
     flex-direction: column;
     margin-bottom: 15px;
 }
 
-.item-confirm-row {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
+.form-row {
+    margin-bottom: 20px;
 }
 
-.total-row {
+.form-item-row-label h3 {
     display: flex;
-    justify-content: space-between;
-    flex-direction: row;
+    flex-direction: left;
+    margin-bottom: 2.5px;
+    font-size: 1.2em;
+    padding-left: 2.5px;
 }
 
-.checkout-container {
+.form-item-row input {
+    border: 0.9px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.form-container {
     background-color: #F4F4F4;
     border-radius: 15px;
     border-color: #F4F4F4;
     border-width: 1px;
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 90%;
     margin-bottom: 20px;
     margin-top: 20px;
     padding: 10px;
@@ -32,11 +39,16 @@
     margin-right: auto;
 }
 
-.create-order-checkout {
+.data-confirmation-button {
+    display: flex;
+    justify-content: right;
+    flex-direction: row;
+}
+
+.form-order-checkout {
     padding: 5px;
     border-radius: 10px;
     width: 30%;
-    margin: auto;
     background-color: #E5F0FF;
     border-color: #E5F0FF;
     color: #0052C9;
@@ -45,8 +57,3 @@
     text-decoration: none;
 }
 
-.confirm-buttons-row {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-}

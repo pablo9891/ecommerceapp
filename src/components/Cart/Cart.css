@@ -29,8 +29,10 @@
 
 .cart-commands-and-info-row {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: right;
+    width: 90%;
+    margin: auto;
 }
 
 .cart-commands {
@@ -72,3 +74,7 @@
     font-weight: bold;
 }
 
+.cart-commands-container {
+    display: flex;
+    justify-content: right;
+}

@@ -3,39 +3,37 @@
 * Año: 2022
 * Comisión: 34750 Lu - Mi
 
-## Available Scripts
+## Como iniciar el proyecto
+Para ejecutar el proyecto se debe ejecutar el comando:
 
-In the project directory, you can run:
+### `npm run start`
 
-### `npm start`
+## Navegabilidad
+La pantalla de `home` muestra los productos disponibles. Seleccionando en el que se está interesado se puede observar el detalle del producto. En donde, se observa el stock para determinado producto. No se puede agregar un producto al carrito si no hay stock del mismo. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Una vez que se agrega un producto al carrito, se puede seleccionar otro producto o se puede acceder directamente al carrito (cart). 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+En la pantalla de carrito, se puede observar todos los productos seleccionados, junto con la cantidad. Allí se pueden eliminar productos del carrito o eliminar la totalidad del carrito. 
 
-### `npm test`
+Si se confirma el carrito, se pasa a la pantalla de carga de datos del cliente, en donde se cargan los datos de la orden. Si se confirman los datos se pasa al checkout de la compra, en donde se genera la compra.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Componentes
+Los componentes principales identificados han sido:
 
-### `npm run build`
+### Navbar
+Muestra las categorías de los productos disponibles. Compuesto por el `NavbarHeader` que muestra el titulo y el `NavbarItems` que muestra las categorías.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### ItemListContainer
+Compuesto por `ItemList` que muestran la lista de productos, donde cada producto esta representado por un `Item` que se encuentran linkeados con un `ItemDetailContainer`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### ItemDetailContainer
+Guarda los datos detallados de un producto, como por ejemplo su stock, nombre, etc. Está compuesto por `ItemCounter` el cual realiza el conteo de la cantidad de productos que se desean. Si no hay stock del producto, el `ItemCounter` se encuentra deshabilitado. Cuando se realiza la compra del producto, se muestra una notificación, utilizando el componente de `Notification`, mostrando que el producto fue agregado al carrito exitosamente.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Cart
+Se muestran todos los productos agregados al carrito. Dandose la opción de borrar todos los productos, si se hace esto se eliminan todos los productos y se da la opción de volver a la `home` de la tienda. Si se confirma se pasa a la pantalla de `CartForm`
 
-### `npm run eject`
+### CartForm
+Se realiza la carga de datos del usuario para poder generar la compra. Todos los datos se validan y si no son válidos se muestran notificaciones de error. Si son correctos, se pasa al `checkout` del producto
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Checkout
+Es en donde se termina de confirmar la compra, junto con los datos del usuario, total y productos de la compra. Si no se confirma, se vuelve a la pantalla de `Cart` para revisar la compra.

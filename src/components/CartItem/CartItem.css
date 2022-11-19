@@ -1,10 +1,12 @@
 .item-cart-container {
-    margin-bottom: 10px;
     padding: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     background-color: #F8F9FA;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 10px;
 }
 
 .header-container {
